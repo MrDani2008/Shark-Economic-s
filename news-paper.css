@@ -12,7 +12,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    
 }
 
 body {
@@ -23,12 +23,13 @@ body {
 /* Header */
 header {
     background-color: var(--color-tertiary);
-    padding: 20px 50px;
+    padding: 20px clamp(20px, 5vw, 50px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-senary);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    
 }
 
 .logo-container {
@@ -38,20 +39,18 @@ header {
 }
 
 .logo {
-    width: 65px;
-    height: 60px;
+    width: clamp(50px, 8vw, 65px);
+    height: clamp(45px, 7vw, 60px);
     background: url('./images/SE NEWS demo.png') no-repeat center center;
-    
     background-size: cover;
     position: relative; 
 }
 
 
 .site-title {
-    font-size: 28px;
+    font-size: clamp(20px, 3vw, 28px);
     font-weight: bold;
     text-decoration: none;
-
 }
 
 .site-title .shark {
@@ -70,11 +69,11 @@ header {
 .btn-register {
     background-color: var(--color-primary);
     color: var(--color-tertiary);
-    padding: 12px 30px;
+    padding: clamp(10px, 1.5vw, 12px) clamp(20px, 3vw, 30px);
     border: none;
     font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
+    font-size: clamp(14px, 1.8vw, 16px);
 }
 
 .btn-register:hover {
@@ -87,7 +86,7 @@ header {
     border: none;
     font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
+    font-size: clamp(14px, 1.8vw, 16px);
 }
 
 .btn-login:hover {
@@ -97,7 +96,7 @@ header {
 /* Navigation */
 nav {
     background-color: var(--color-tertiary);
-    padding: 15px 50px;
+    padding: 15px clamp(20px, 5vw, 50px);
     border-bottom: 3px solid var(--color-senary);
     text-align: center;
 }
@@ -105,8 +104,8 @@ nav {
 nav a {
     text-decoration: none;
     color: #000;
-    margin: 0 20px;
-    font-size: 18px;
+    margin: 0 clamp(10px, 2vw, 20px);
+    font-size: clamp(14px, 2vw, 18px);
     font-weight: 500;
     position: relative;
 }
@@ -124,38 +123,33 @@ nav a:hover {
 main {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    padding: 0 clamp(20px, 5vw, 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: left;
     gap: 40px;
+    font-family: 'Times New Roman', Times, serif;
 }
-
-.news-card {
-    background-color: var(--color-tertiary);
+.news-title h1{
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    padding: 0 20px;
+    font-weight: 600;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+.news-content {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    
+    flex-direction: column;
     overflow: hidden;
     transition: all 0.5s;
 }
-div:hover {
-    transform: scaleY(5px);
-    transition: all 1s;
-    box-shadow: 4px 4px 5px solid #000;
-}
 
-.news-image {
-    width: 100%;
-    height: 230px;
-    background-color: #d0d0d0;
-    margin-bottom: 20px;
-    background: no-repeat center/100%;
-}
-
-.news-title {
-    font-size: 22px;
-    font-style: italic;
-    margin-bottom: 15px;
-    padding: 0 20px;
-    font-weight: 600;
-}
 
 .news-title-span {
     font-style: normal;
@@ -164,27 +158,60 @@ div:hover {
     color: var(--color-tertiary);
     margin-inline: 5px;
 }
-.news-title-span::before {
-    content: '•';
-    font-style: normal;
-    margin-inline: 5px;
-    background-color: var(--color-primary);
-    color: var(--color-tertiary);
-    margin-right: 5px;
-}
 
-.news-description {
-    color: var(--color-quaternary);
-    line-height: 1.6;
-    margin-bottom: 10px;
-    padding: 0 20px;
-}
 
-.news-meta {
+.news-content .news-subtitle {
+    position: relative;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    text-align: left;
+    padding-inline: clamp(1em, 2.8vw, 2.8em);
+}
+.news-content .news-info p {
+
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+
+    padding-inline: clamp(1em, 4vw, 4em);
+    font-family: "BBC Reith Serif", BBCReithSerif-fallback, serif;
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 18px);
+    text-transform: none;
+    text-decoration: none;
+}
+#initial-img {
+    margin-inline: auto;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.news-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2em;
+    width: 100%;
+    box-sizing: border-box;
+}
+.news-img img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+.news-img figcaption {
+    text-align: center;
+    margin-top: 0.5em;
     color: var(--color-quinary);
-    font-size: 14px;
-    padding: 0 20px 20px 20px;
+    font-weight: 500;
+    font-style: italic;
+    
 }
+
+
 
 /* Footer */
 footer {
@@ -202,8 +229,8 @@ footer {
 .footer-nav a {
     text-decoration: none;
     color: var(--color-quinary);
-    margin: 0 20px;
-    font-size: 18px;
+    margin: 0 clamp(10px, 2vw, 20px);
+    font-size: clamp(14px, 2vw, 18px);
 }
 
 .footer-nav a:hover {
@@ -213,7 +240,7 @@ footer {
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px;
+    padding: clamp(30px, 5vw, 50px);
     display: flex;
     justify-content: space-between;
 }
@@ -259,7 +286,7 @@ footer {
 }
 
 .social-icons a:hover {
-    color: red;
+    color: #333;
 }
 
 .footer-right {
@@ -294,29 +321,68 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    main {
-        grid-template-columns: 1fr;
-    }
-
     .footer-content {
         flex-direction: column;
         gap: 40px;
+        align-items: center;
     }
 
     .footer-right {
-        text-align: center;
+        text-align: left;
+    }
+
+    .news-title h1 {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
+
+    .news-content .news-subtitle {
+        padding-inline: 1em;
+    }
+
+    .news-content .news-info p {
+        padding-inline: 1em;
+        font-size: 16px;
     }
 
     header {
         flex-direction: column;
         gap: 20px;
+        padding: 20px;
     }
 
     nav {
         padding: 15px 20px;
     }
 
+    nav a {
+        margin: 0 10px;
+        font-size: 16px;
+    }
+
     main {
         padding: 0 20px;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 45px;
+    }
+
+    .site-title {
+        font-size: 24px;
+    }
+
+    .btn-register,
+    .btn-login {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .auth-buttons {
+        width: 100%;
+        justify-content: center;
     }
 }
