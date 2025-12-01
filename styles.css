@@ -24,11 +24,16 @@ body {
 header {
     background-color: var(--color-tertiary);
     padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
     display: flex;
+    min-width: 100vw;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-senary);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .logo-container {
@@ -96,6 +101,12 @@ header {
 
 /* Navigation */
 nav {
+    position: fixed;
+    top: 100px; /* Altura aproximada del header (60px logo + 40px padding) */
+    left: 0;
+    right: 0;
+    z-index: 99;
+    min-width: 100vw;
     background-color: var(--color-tertiary);
     padding: 15px 50px;
     border-bottom: 3px solid var(--color-senary);
@@ -105,26 +116,26 @@ nav {
 nav a {
     text-decoration: none;
     color: #000;
-    margin: 0 20px;
-    font-size: 18px;
+    margin: 0 clamp(10px, 2vw, 20px);
+    font-size: clamp(14px, 2vw, 18px);
     font-weight: 500;
     position: relative;
+
 }
 
-nav a:first-child {
-    border-bottom: 3px solid #000;
-    padding-bottom: 12px;
-}
 
 nav a:hover {
+    transition: all 0.5s;
     color: var(--color-primary);
+    border-bottom: 3px solid #000;
+    padding-bottom: 12px;
 }
 
 /* Main Content */
 main {
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 50px;
+    margin: 0 auto;
+    padding: 180px 50px 40px 50px; /* padding-top: header (100px) + nav (60px) + margin (20px) */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -202,12 +213,31 @@ footer {
 .footer-nav a {
     text-decoration: none;
     color: var(--color-quinary);
-    margin: 0 20px;
-    font-size: 18px;
+    margin: 0 clamp(10px, 2vw, 20px);
+    font-size: clamp(14px, 2vw, 18px);
 }
 
 .footer-nav a:hover {
+    transition: all 0.5s;
     color: var(--color-quaternary);
+    
+    animation: identifier 0.5s ease-in 1;
+}
+@keyframes identifier {
+    0% {
+        border-top: 3px solid #000;
+    }
+    50% {
+        border-top: 3px solid rgba(0, 0, 0, 0.356);
+        padding-top: 6px;
+    }
+    75% {
+        border-top: 3px solid rgba(0, 0, 0, 0.712);
+        padding-top: 9px;
+    }
+    100%{
+        padding-top: 12px;
+    }
 }
 
 .footer-content {
@@ -294,8 +324,20 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 20px;
+    }
+
+    nav {
+        top: 160px; /* Altura aumentada del header en móvil (logo + padding + gap) */
+        padding: 15px 20px;
+    }
+
     main {
         grid-template-columns: 1fr;
+        padding: 220px 20px 40px 20px; /* padding-top ajustado para móvil */
     }
 
     .footer-content {
@@ -305,18 +347,5 @@ footer {
 
     .footer-right {
         text-align: center;
-    }
-
-    header {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav {
-        padding: 15px 20px;
-    }
-
-    main {
-        padding: 0 20px;
     }
 }
