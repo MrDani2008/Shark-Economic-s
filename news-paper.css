@@ -187,7 +187,28 @@ main {
     text-transform: none;
     text-decoration: none;
 }
-#initial-img {
+.news-content .news-info ol {
+    list-style-type: decimal;
+    padding-left: 2.5rem;
+    margin: 0 0 1rem 0;
+}
+.news-content .news-info li {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    padding-inline: 0;
+    margin-bottom: 0.5em;
+    font-family: "BBC Reith Serif", BBCReithSerif-fallback, serif;
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 18px);
+    text-transform: none;
+    text-decoration: none;
+}
+.news-content .news-info li::before {
+    content: '• ';
+    font-weight: bold;
+}
+#initial-img img {
     margin-inline: auto;
     max-width: 100%;
     width: 100%;
@@ -402,6 +423,10 @@ footer {
 
     .site-title {
         font-size: 24px;
+    }
+    .news-content .news-info ol {
+        list-style-type: decimal;
+        margin: 0 0 1rem 0;
     }
 
     .btn-register,

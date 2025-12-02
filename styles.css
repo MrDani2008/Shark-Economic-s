@@ -165,6 +165,7 @@ main {
     background-color: #d0d0d0;
     margin-bottom: 20px;
     background: no-repeat center/100%;
+ 
 }
 
 .news-title {
@@ -173,6 +174,9 @@ main {
     margin-bottom: 15px;
     padding: 0 20px;
     font-weight: 600;
+}
+.news-description {
+    overflow: hidden;
 }
 /*Etiquetas para el titulo de las noticias*/
 /*En rojo(Lo ultimo)*/
