@@ -105,7 +105,7 @@ nav {
     z-index: 99;
     background-color: var(--color-tertiary);
     padding: 15px clamp(20px, 5vw, 50px);
-    border-bottom: 3px solid var(--color-senary);
+    border-bottom: 1px solid var(--color-senary);
     text-align: center;
 }
 
